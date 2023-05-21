@@ -18,3 +18,20 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+ul {
+  list-style-type:none;
+}
+
+svg{
+  margin-right: 10px;
+  border: 1px solid red;
+}
+
+p {
+  font-weight: 700;
+}
+
+span {
+  font-weight: 400;
+}
