@@ -1,14 +1,19 @@
-name: Build and deploy to GitHub Pages
-
-on:
+on: 
   push:
-    branches: [main]
-
+    branches:
+      - main
+name: 🚀 Deploy website on push
 jobs:
-  build-and-deploy:
-    runs-on: windows-latest
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
     steps:
-      - run: node --version
-      - run: npm --version
-      - run: npm install
-      - run: npm run start
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v3
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.samkirkland.com
+        username: myFtpUserName
+        password: ${{ secrets.ftp_password }}
